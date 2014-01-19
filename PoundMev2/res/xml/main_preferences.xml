@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory android:title="Notifications" >
+        <CheckBoxPreference 
+            android:key="prefPersistentNotifsBOOL"
+            android:title="Persistent notifications"
+            android:summaryOn="Pound notifications will not close when accessed"
+            android:summaryOff="Pound notifications will close when accessed"
+            android:defaultValue="true"/>
+        <CheckBoxPreference android:key="prefNotifSoundBOOL"
+            android:title="Sound"
+            android:defaultValue="true"/>
+        <Preference android:key="prefSetRingtone"
+            android:title="	Set ringtone"
+            android:dependency="prefNotifSoundBOOL"/>
+        <CheckBoxPreference android:key="prefNotifVibrationBOOL"
+            android:title="Vibrate"
+            android:defaultValue="false"/>
+        <ListPreference android:key="prefSetPattern"
+            android:title="	Set vibration pattern"
+            android:dependency="prefNotifVibrationBOOL"/>
+    </PreferenceCategory>
+    
+    <PreferenceCategory android:title="Support">
+        <Preference android:key="prefViewTutorial"
+            android:title="View tutorial"
+            android:summary="View the tutorial again">
+         </Preference>
+        <Preference android:key="prefContactDeveloper"
+            android:title="Contact the developer"
+            android:summary="Bug reports, suggestions, and other queries are encouraged!"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

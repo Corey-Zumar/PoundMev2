@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/tvDialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textColor="#669900"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <TextView
+        android:id="@+id/tvDialogTitleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:textColor="#669900"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <View 
+        android:id="@+id/tvDialogDivider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#66CC00"
+        android:layout_below="@+id/tvDialogTitle"
+        android:layout_marginTop="20dp"/>
+
+</RelativeLayout>

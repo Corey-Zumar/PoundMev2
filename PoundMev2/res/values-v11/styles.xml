@@ -1,0 +1,15 @@
+<resources>
+
+    <!--
+        Base application theme for API 11+. This theme completely replaces
+        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/GreenActionBar</item>
+    </style>
+    
+    <style name="GreenActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">#99CC00</item>
+    </style>
+
+</resources>

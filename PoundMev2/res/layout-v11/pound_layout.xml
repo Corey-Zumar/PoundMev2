@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/activatedBackgroundIndicator"
+    android:descendantFocusability="blocksDescendants" >
+
+    <QuickContactBadge
+        android:id="@+id/qcbContactPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/default_contact_photo" />
+
+    <TextView
+        android:id="@+id/tvSender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/qcbContactPhoto"
+        android:textStyle="bold"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Sender" />
+
+    <TextView
+        android:id="@+id/tvTagAndPhrase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvSender"
+        android:layout_marginRight="3dp"
+        android:layout_toLeftOf="@+id/ibOverflow"
+        android:layout_below="@+id/tvSender"
+        android:textColorLink="#669900"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Tag and Phrase" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_toRightOf="@+id/tvSender"
+        android:layout_toLeftOf="@+id/ibOverflow"
+		android:layout_alignBaseline="@+id/tvSender"
+        android:layout_alignBottom="@+id/tvSender"
+		android:layout_marginLeft="8dp"
+        android:layout_marginRight="3dp"
+        android:text="Date" 
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+    
+    <View android:id="@+id/vBuffer"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_below="@+id/qcbContactPhoto"/>
+
+    <ImageButton
+        android:id="@+id/ibOverflow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="17dp"
+        android:onClick="handleOverflowClick"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_action_overflow" />
+
+</RelativeLayout>
