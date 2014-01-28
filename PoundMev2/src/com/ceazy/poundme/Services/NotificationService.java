@@ -78,19 +78,19 @@ public class NotificationService extends IntentService {
 		String body = msgInfo.getString("body");
 		SuperTextAnalyzer analyzer = new SuperTextAnalyzer(this);
 		if(analyzer.containsHashTag(body)) {
-			long time = System.currentTimeMillis();
 			String address = msgInfo.getString("address");
 			setContactName(address);
 			List<SuperTag> tagsList = analyzer.getAllTags(body);
-			postNotifications(tagsList, address, time);
-			addPoundsToDatabaseAndNotify(tagsList, address, time);
+			postNotifications(tagsList, address);
 		}
 	}
 	
-	private void postNotifications(List<SuperTag> tagsList, String address, long time) {
+	private void postNotifications(List<SuperTag> tagsList, String address) {
 		NotificationManager notifManager = (NotificationManager) 
 				getSystemService(NOTIFICATION_SERVICE);
 		for(SuperTag tag : tagsList) {
+			long time = System.currentTimeMillis();
+			addPoundToDatabaseAndNotify(tag, address, time);
 			notifManager.notify((int) time, createNotification(tag, address, time));
 			vibrate();
 			playRingtone();
@@ -185,13 +185,11 @@ public class NotificationService extends IntentService {
 		return notificationPI;
 	}
 	
-	private void addPoundsToDatabaseAndNotify(List<SuperTag> tagsList, String address, long time) {
-		for(SuperTag tag : tagsList) {
-			Pound newPound  = new Pound(address, time, tag);
-			newPound.setSeenStatus(false);
-			sendNewPoundBroadcast(newPound);
-			addPoundToDatabase(newPound);
-		}
+	private void addPoundToDatabaseAndNotify(SuperTag tag, String address, long time) {
+		Pound newPound  = new Pound(address, time, tag);
+		newPound.setSeenStatus(false);
+		sendNewPoundBroadcast(newPound);
+		addPoundToDatabase(newPound);
 	}
 	
 	private void sendNewPoundBroadcast(Pound pound) {
